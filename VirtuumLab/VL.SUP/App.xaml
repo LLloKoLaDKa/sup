@@ -4,13 +4,13 @@
              xmlns:local="clr-namespace:VLSUP"
              StartupUri="Views/Windows/DataWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="MainColor" Color="Blue"/>
+        <SolidColorBrush x:Key="MainColor" Color="DodgerBlue"/>
         
         <Style TargetType="{x:Type ListViewItem}">
             <Setter Property="Margin" Value="20"/>
             <Setter Property="Background" Value="White"/>
         </Style>
-        
+
         <Style TargetType="{x:Type Button}">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -19,7 +19,7 @@
             <Setter Property="TextElement.FontSize" Value="14" />
             <Setter Property="TextElement.FontFamily" Value="Cascadia Code SemiLight" />
         </Style>
-        
+
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
         <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
         <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
@@ -30,7 +30,7 @@
         <SolidColorBrush x:Key="Button.Current.Background" Color="White"/>
         <SolidColorBrush x:Key="Button.Current.BorderBrush" Color="#FF838383"/>
         <ControlTemplate x:Key="MainButton" TargetType="{x:Type ButtonBase}">
-            <Border x:Name="border" Background="{StaticResource Button.Current.Background}" CornerRadius="10" BorderBrush="{StaticResource Button.Current.BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <Border x:Name="border" Background="{StaticResource Button.Current.Background}" CornerRadius="5" BorderBrush="{StaticResource Button.Current.BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                 <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
             <ControlTemplate.Triggers>

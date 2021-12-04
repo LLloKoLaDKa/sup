@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using VLSUP.Views;
+using VLSUP.Views.Pages;
 
 namespace VLSUP
 {
@@ -13,5 +9,10 @@ namespace VLSUP
     /// </summary>
     public partial class App : Application
     {
+        public static ProjectsPage ProjectsPage;
+        public static ActiveProjectPage ActiveProjectPage;
+        public static EmployeePage EmployeePage;
+        public static VacationsPage VacationsPage;
+        public static TasksPages TasksPages;
     }
 }

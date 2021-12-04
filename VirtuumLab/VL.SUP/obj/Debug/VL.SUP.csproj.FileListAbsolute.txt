@@ -30,7 +30,6 @@ D:\git\sup\VirtuumLab\VL.SUP\bin\Debug\WpfApp1.exe
 D:\git\sup\VirtuumLab\VL.SUP\bin\Debug\WpfApp1.pdb
 D:\git\sup\VirtuumLab\VL.SUP\bin\Debug\EntityFramework.dll
 D:\git\sup\VirtuumLab\VL.SUP\bin\Debug\EntityFramework.xml
-D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\VL.SUP.csproj.AssemblyReference.cache
 D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\VL.SUP.csproj.SuggestedBindingRedirects.cache
 D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\App.g.cs
 D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\WpfApp1_Content.g.cs
@@ -54,3 +53,8 @@ D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\Views\Pages\EmployeePage.baml
 D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\Views\Pages\ProjectsPage.baml
 D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\Views\Pages\TasksPages.baml
 D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\Views\Pages\VacationsPage.baml
+D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\Views\Pages\ActiveProjectPage.g.cs
+D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\Views\Pages\ActiveProjectPage.baml
+D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\VL.SUP.csproj.AssemblyReference.cache
+D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\Views\Windows\EmployeeEditor.g.cs
+D:\git\sup\VirtuumLab\VL.SUP\obj\Debug\Views\Windows\EmployeeEditor.baml

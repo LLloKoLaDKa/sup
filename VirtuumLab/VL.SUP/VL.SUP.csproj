@@ -65,6 +65,7 @@
     <Compile Include="Repository\Employee.cs">
       <DependentUpon>SUP.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repository\EmployeePartial.cs" />
     <Compile Include="Repository\EmployeeType.cs">
       <DependentUpon>SUP.tt</DependentUpon>
     </Compile>
@@ -102,6 +103,9 @@
     <Compile Include="Repository\Vacation.cs">
       <DependentUpon>SUP.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\ActiveProjectPage.xaml.cs">
+      <DependentUpon>ActiveProjectPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\DataWindow.xaml.cs">
       <DependentUpon>DataWindow.xaml</DependentUpon>
     </Compile>
@@ -117,6 +121,13 @@
     <Compile Include="Views\Pages\VacationsPage.xaml.cs">
       <DependentUpon>VacationsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\EmployeeEditor.xaml.cs">
+      <DependentUpon>EmployeeEditor.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\Pages\ActiveProjectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\DataWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -138,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\VacationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\EmployeeEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +196,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="logo.png" />
     <Content Include="Repository\SUP.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SUP.edmx</DependentUpon>

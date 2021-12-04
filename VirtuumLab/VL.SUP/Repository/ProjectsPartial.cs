@@ -38,6 +38,14 @@ namespace VLSUP.Repository
             {
                 return ProjectWorks.Count;
             }
-        } 
+        }
+
+        public Employee[] Employees
+        {
+            get
+            {
+                return ProjectWorks.Select(pw => pw.Employee).ToArray();
+            }
+        }
     }
 }

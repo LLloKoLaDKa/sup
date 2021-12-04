@@ -18,7 +18,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="projectsBox" Grid.Row="0" Grid.ColumnSpan="3" Background="{StaticResource MainColor}">
+        <ListView x:Name="projectsBox" Grid.Row="0" Grid.ColumnSpan="3" Background="{StaticResource MainColor}" SelectionChanged="projectsBox_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
@@ -38,8 +38,8 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Grid.Column="0" Grid.Row="1" Content="Добавить проект" Template="{DynamicResource MainButton}"/>
-        <Button Grid.Column="1" Grid.Row="1" Content="Сотрудники" Template="{DynamicResource MainButton}"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="Отпуска" Template="{DynamicResource MainButton}"/>
+        <Button x:Name="addProjectButton" Grid.Column="0" Grid.Row="1" Content="Добавить проект" Template="{DynamicResource MainButton}" Click="addProjectButton_Click"/>
+        <Button x:Name="employeesButton" Grid.Column="1" Grid.Row="1" Content="Сотрудники" Template="{DynamicResource MainButton}" Click="employeesButton_Click"/>
+        <Button x:Name="reportsButton" Grid.Column="2" Grid.Row="1" Content="Отчёты " Template="{DynamicResource MainButton}" Click="reportsButton_Click"/>
     </Grid>
 </Page>

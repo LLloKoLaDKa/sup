@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using VLSUP.Repository;
 
 namespace VLSUP.Views
 {
@@ -19,10 +10,44 @@ namespace VLSUP.Views
     /// </summary>
     public partial class DataWindow : Window
     {
+        public Action ReturnAction { get; set; }
+        public Int32 ProjectCount { get; set; } = new SUPEntities().Projects.Where(p => !p.IsRemoved).Count();
         public DataWindow()
         {
             InitializeComponent();
-            mainFrame.Content = new ProjectsPage();
+            App.ProjectsPage = new ProjectsPage();
+            mainFrame.Content = App.ProjectsPage;
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите закрыть приложение?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                App.Current.Shutdown();
+            }
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) => this.DragMove();
+
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ReturnAction == null) return;
+
+            ReturnAction();
+        }
+
+        public void SetReturnAction(Action action)
+        {
+            ReturnAction = action;
+            returnButton.Visibility = Visibility.Visible;
+
+        }
+
+        public void ResetReturnAction()
+        {
+            ReturnAction = null;
+            returnButton.Visibility = Visibility.Hidden;
         }
     }
 }
