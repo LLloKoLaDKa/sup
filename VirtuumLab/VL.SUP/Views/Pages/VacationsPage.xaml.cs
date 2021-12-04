@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VLSUP.Repository;
+using WpfApp1.Views.Windows;
 
 namespace VLSUP.Views
 {
@@ -20,9 +22,38 @@ namespace VLSUP.Views
     /// </summary>
     public partial class VacationsPage : Page
     {
+        SUPEntities db = new SUPEntities();
         public VacationsPage()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        public void LoadData()
+        {
+            Vacation[] vacations = db.Vacations.Where(v => !v.IsRemoved).OrderBy(v => v.DateStart).ToArray();
+            mainList.ItemsSource = vacations;
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            VacationEditor editor = new VacationEditor(LoadData);
+            editor.Owner = App.Current.MainWindow;
+            editor.ShowDialog();
+        }
+
+        private void mainList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView list = sender as ListView;
+            if (list is null) return;
+
+            Vacation vacation = list.SelectedItem as Vacation;
+            if (vacation is null) return;
+
+            VacationEditor editor = new VacationEditor(LoadData, vacation);
+            editor.Owner = App.Current.MainWindow;
+            editor.ShowDialog();
+            list.SelectedItem = null;
         }
     }
 }

@@ -7,10 +7,37 @@
         xmlns:local="clr-namespace:VLSUP.Views" ResizeMode="NoResize"
         mc:Ignorable="d" Background="Transparent" WindowStyle="None" AllowsTransparency="True"
         Title="DataWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Border Background="White" CornerRadius="5" BorderThickness="2" BorderBrush="{StaticResource MainColor}">
+    <Window.Resources>
+        <ControlTemplate x:Key="ButtonTemplate1" TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" Background="{StaticResource Button.Current.Background}" BorderBrush="{StaticResource Button.Current.BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5" SnapsToDevicePixels="true">
+                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsDefaulted" Value="true">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="Red"/>
+                    <Setter Property="TextBlock.Foreground" Value="White"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Border Background="White" CornerRadius="5" BorderThickness="5" BorderBrush="{StaticResource MainColor}" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -19,24 +46,25 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.ColumnSpan="3" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <Grid Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Image Grid.Column="0" Source="../../logo.png" Margin="10"/>
-                <Button x:Name="returnButton" Visibility="Hidden" Template="{StaticResource MainButton}" Content="Назад" Grid.Column="1" Click="returnButton_Click"/>
-                <TextBlock Grid.Column="2" Text="{Binding ElementName=dataWindow, Path=ProjectCount, StringFormat=Активные проекты: {0}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                <Button x:Name="returnButton" Visibility="Collapsed" Template="{StaticResource MainButton}" Content="Назад" Grid.Column="1" Click="returnButton_Click"/>
+                <TextBlock x:Name="infoBlock" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                
                 <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="3">
                     <!--<Button x:Name="hideButton" Content="–" Margin="0 0 5 0" Template="{StaticResource MainButton}" Padding="10 5" Click="hideButton_Click"/>
                     <Button x:Name="minimizeButton" Content="■" Margin="0 0 5 0" Template="{StaticResource MainButton}" Padding="10 5" Click="minimizeButton_Click"/>-->
-                    <Button x:Name="closeButton" Content="X" Template="{StaticResource MainButton}" Padding="10 5" Click="closeButton_Click"/>
+                    <Button x:Name="closeButton" Content="X" Template="{StaticResource ButtonTemplate1}" Padding="10 5" Click="closeButton_Click"/>
                 </StackPanel>
-
             </Grid>
+            <TextBlock x:Name="frameTitle" Grid.Row="1" Grid.ColumnSpan="3" Text="Проекты" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
-            <Frame x:Name="mainFrame" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="mainFrame" Grid.Row="2" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Border>
 </Window>

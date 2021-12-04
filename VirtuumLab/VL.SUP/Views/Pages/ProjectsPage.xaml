@@ -18,7 +18,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="projectsBox" Grid.Row="0" Grid.ColumnSpan="3" Background="{StaticResource MainColor}" SelectionChanged="projectsBox_SelectionChanged">
+        <ListView x:Name="projectsBox" BorderThickness="0" Grid.Row="0" Grid.ColumnSpan="3" Background="{StaticResource MainColor}" SelectionChanged="projectsBox_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>

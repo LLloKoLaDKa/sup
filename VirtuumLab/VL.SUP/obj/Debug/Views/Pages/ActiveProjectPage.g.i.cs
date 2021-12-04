@@ -60,7 +60,7 @@ namespace VLSUP.Views.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp1;component/views/pages/activeprojectpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/VLSUP;component/views/pages/activeprojectpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Pages\ActiveProjectPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

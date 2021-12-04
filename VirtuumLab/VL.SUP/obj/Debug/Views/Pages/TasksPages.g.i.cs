@@ -52,7 +52,7 @@ namespace VLSUP.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp1;component/views/pages/taskspages.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/VLSUP;component/views/pages/taskspages.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Pages\TasksPages.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -9,6 +9,27 @@
       Title="VacationsPage">
 
     <Grid>
-        
-    </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50px"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="mainList" Background="{StaticResource MainColor}" SelectionChanged="mainList_SelectionChanged">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3" Rows="2"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Center" Width="220">
+                        <TextBlock Text="{Binding EmployeeName}" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+                        <TextBlock Text="{Binding Period}" TextAlignment="Center"/>
+                        <TextBlock Text="{Binding Comment}" TextAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="addButton" Grid.Row="1" Margin="20 0" HorizontalAlignment="Stretch" Template="{StaticResource MainButton}" Content="Добавить отпуск" Click="addButton_Click"/>
+    </Grid>    
 </Page>

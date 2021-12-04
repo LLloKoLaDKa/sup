@@ -11,7 +11,7 @@ namespace VLSUP.Views
     public partial class DataWindow : Window
     {
         public Action ReturnAction { get; set; }
-        public Int32 ProjectCount { get; set; } = new SUPEntities().Projects.Where(p => !p.IsRemoved).Count();
+
         public DataWindow()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace VLSUP.Views
             }
         }
 
-        private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) => this.DragMove();
+        private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) => this.DragMove();
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
@@ -49,5 +49,7 @@ namespace VLSUP.Views
             ReturnAction = null;
             returnButton.Visibility = Visibility.Hidden;
         }
+
+        
     }
 }
