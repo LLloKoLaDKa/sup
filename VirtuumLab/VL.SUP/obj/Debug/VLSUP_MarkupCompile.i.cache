@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\git\sup\VirtuumLab\VL.SUP\App.xaml
-8-1572000019
+11-921132102
 2-1455486441
-281568843540
-19-1983975683
-Views\Pages\ActiveProjectPage.xaml;Views\Windows\DataWindow.xaml;Views\Pages\EmployeePage.xaml;Views\Pages\ProjectsPage.xaml;Views\Pages\TasksPages.xaml;Views\Pages\VacationsPage.xaml;Views\Windows\EmployeeEditor.xaml;Views\Windows\VacationEditor.xaml;
+34-2025650196
+24224582478
+Views\Pages\ReportsPage.xaml;Views\Windows\BindingEmployeeWindow.xaml;Views\Windows\DataWindow.xaml;Views\Pages\EmployeePage.xaml;Views\Pages\ProjectsPage.xaml;Views\Pages\TasksPage.xaml;Views\Pages\VacationsPage.xaml;Views\Windows\EmployeeEditor.xaml;Views\Windows\ProjectEditor.xaml;Views\Windows\TaskEditor.xaml;Views\Windows\VacationEditor.xaml;
 
 True
 

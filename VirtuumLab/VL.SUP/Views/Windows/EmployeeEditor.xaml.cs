@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using VL.Validator;
+using VL.Validator.Models;
 using VLSUP.Repository;
 
 namespace VLSUP.Views.Windows
@@ -48,20 +40,11 @@ namespace VLSUP.Views.Windows
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             EmployeeType type = (typeBox.SelectedItem as EmployeeType);
-            if (type is null)
-            {
-                MessageBox.Show("Вы не указали тип сотрудника", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (String.IsNullOrWhiteSpace(Employee.FirstName))
-            {
-                MessageBox.Show("Вы не указали имя сотрудника", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
 
-            if (String.IsNullOrWhiteSpace(Employee.LastName))
+            Result result = Validator.ValidateEmployee(Employee.FirstName, Employee.LastName, type);
+            if (!result.IsSuccess)
             {
-                MessageBox.Show("Вы не указали фамилию сотрудника", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(result.Errors[0], "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

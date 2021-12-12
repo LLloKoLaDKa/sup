@@ -32,7 +32,7 @@ namespace VLSUP.Repository
 
         public String ProjectsCount
         {
-            get => $"Активных проектов: {ProjectWorks.Count}";
+            get => $"Активных проектов: {ProjectWorks.Where(pw => pw.DateEnd == null).Count()}";
         }
 
         public Boolean Border { get; set; } = false;

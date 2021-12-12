@@ -1,0 +1,6 @@
+D:\git\sup\VirtuumLab\VL.Validator\bin\Debug\VL.Validator.dll
+D:\git\sup\VirtuumLab\VL.Validator\bin\Debug\VL.Validator.pdb
+D:\git\sup\VirtuumLab\VL.Validator\obj\Debug\VL.Validator.csproj.AssemblyReference.cache
+D:\git\sup\VirtuumLab\VL.Validator\obj\Debug\VL.Validator.csproj.CoreCompileInputs.cache
+D:\git\sup\VirtuumLab\VL.Validator\obj\Debug\VL.Validator.dll
+D:\git\sup\VirtuumLab\VL.Validator\obj\Debug\VL.Validator.pdb

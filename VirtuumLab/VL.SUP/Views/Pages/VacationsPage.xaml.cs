@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VLSUP.Repository;
-using WpfApp1.Views.Windows;
+using VLSUP.Views.Windows;
 
 namespace VLSUP.Views
 {
@@ -33,6 +33,7 @@ namespace VLSUP.Views
         {
             Vacation[] vacations = db.Vacations.Where(v => !v.IsRemoved).OrderBy(v => v.DateStart).ToArray();
             mainList.ItemsSource = vacations;
+            App.RenderInfo("VacationsPage");
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)

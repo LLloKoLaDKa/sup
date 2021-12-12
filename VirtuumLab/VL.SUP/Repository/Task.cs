@@ -22,6 +22,7 @@ namespace VLSUP.Repository
         public Nullable<System.Guid> TesterId { get; set; }
         public System.Guid State { get; set; }
         public bool IsRemoved { get; set; }
+        public int NumberTask { get; set; }
     
         public virtual Employee Performer { get; set; }
         public virtual Employee Tester { get; set; }

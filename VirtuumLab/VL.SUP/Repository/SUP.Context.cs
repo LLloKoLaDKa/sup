@@ -31,7 +31,7 @@ namespace VLSUP.Repository
         public DbSet<ProjectWork> ProjectWorks { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Task> Tasks { get; set; }
-        public DbSet<Vacation> Vacations { get; set; }
         public DbSet<TaskState> TaskStates { get; set; }
+        public DbSet<Vacation> Vacations { get; set; }
     }
 }

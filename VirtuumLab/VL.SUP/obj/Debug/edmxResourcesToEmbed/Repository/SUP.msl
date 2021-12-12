@@ -65,6 +65,15 @@
           <ScalarProperty Name="TesterId" ColumnName="TesterId" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+          <ScalarProperty Name="NumberTask" ColumnName="NumberTask" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskStates">
+      <EntityTypeMapping TypeName="SUPModel.TaskState">
+        <MappingFragment StoreEntitySet="TaskStates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -77,14 +86,6 @@
           <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TaskStates">
-      <EntityTypeMapping TypeName="SUPModel.TaskState">
-        <MappingFragment StoreEntitySet="TaskStates">
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

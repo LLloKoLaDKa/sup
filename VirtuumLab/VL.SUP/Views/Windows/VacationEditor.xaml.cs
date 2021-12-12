@@ -12,9 +12,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VL.Validator;
+using VL.Validator.Models;
 using VLSUP.Repository;
 
-namespace WpfApp1.Views.Windows
+namespace VLSUP.Views.Windows
 {
     /// <summary>
     /// Interaction logic for VacationEditor.xaml
@@ -76,21 +78,13 @@ namespace WpfApp1.Views.Windows
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Vacation.DateStart == null)
+            Result result = Validator.ValidateVacation(Vacation.EmployeeId, Vacation.DateStart, Vacation.DateEnd);
+            if (!result.IsSuccess)
             {
-                MessageBox.Show("Вы не выбрали дату начала отпуска", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(result.Errors[0], "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            if (Vacation.DateStart == null)
-            {
-                MessageBox.Show("Вы не выбрали дату начала отпуска", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return;
-            }
-            if (Vacation.EmployeeId == Guid.Empty)
-            {
-                MessageBox.Show("Вы не выбрали сотрудника", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return;
-            }
+
             if (Vacation.Id == Guid.Empty)
             {
                 Vacation.Id = Guid.NewGuid();
@@ -114,7 +108,7 @@ namespace WpfApp1.Views.Windows
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show(
-                $"Вы уверены, что хотите удалить отпуск у сотрудника {Vacation.EmployeeName} c {Vacation.DateStartOnlyDate} по {Vacation.DateEndOnlyDate}",
+                $"Вы уверены, что хотите удалить отпуск у сотрудника {Vacation.EmployeeName} c {Vacation.DateStartOnlyDate} по {Vacation.DateEndOnlyDate}?",
                 "Подтверждение",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning

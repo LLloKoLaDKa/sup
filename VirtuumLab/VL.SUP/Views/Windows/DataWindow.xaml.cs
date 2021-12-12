@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
+using System.Windows.Threading;
 using VLSUP.Repository;
 
 namespace VLSUP.Views
@@ -15,8 +16,14 @@ namespace VLSUP.Views
         public DataWindow()
         {
             InitializeComponent();
-            App.ProjectsPage = new ProjectsPage();
-            mainFrame.Content = App.ProjectsPage;
+            App.ChangeToProjectsPage();
+            App.Current.DispatcherUnhandledException += UnhandledException;
+        }
+
+        public void UnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show("Произошла непредвиденная ошибка, попробуйте снова!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true;
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)

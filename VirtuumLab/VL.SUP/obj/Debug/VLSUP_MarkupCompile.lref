@@ -1,11 +1,14 @@
 ﻿
 FD:\git\sup\VirtuumLab\VL.SUP\App.xaml;;
-FD:\git\sup\VirtuumLab\VL.SUP\Views\Pages\ActiveProjectPage.xaml;;
+FD:\git\sup\VirtuumLab\VL.SUP\Views\Pages\ReportsPage.xaml;;
+FD:\git\sup\VirtuumLab\VL.SUP\Views\Windows\BindingEmployeeWindow.xaml;;
 FD:\git\sup\VirtuumLab\VL.SUP\Views\Windows\DataWindow.xaml;;
 FD:\git\sup\VirtuumLab\VL.SUP\Views\Pages\EmployeePage.xaml;;
 FD:\git\sup\VirtuumLab\VL.SUP\Views\Pages\ProjectsPage.xaml;;
-FD:\git\sup\VirtuumLab\VL.SUP\Views\Pages\TasksPages.xaml;;
+FD:\git\sup\VirtuumLab\VL.SUP\Views\Pages\TasksPage.xaml;;
 FD:\git\sup\VirtuumLab\VL.SUP\Views\Pages\VacationsPage.xaml;;
 FD:\git\sup\VirtuumLab\VL.SUP\Views\Windows\EmployeeEditor.xaml;;
+FD:\git\sup\VirtuumLab\VL.SUP\Views\Windows\ProjectEditor.xaml;;
+FD:\git\sup\VirtuumLab\VL.SUP\Views\Windows\TaskEditor.xaml;;
 FD:\git\sup\VirtuumLab\VL.SUP\Views\Windows\VacationEditor.xaml;;
 

@@ -37,6 +37,7 @@ namespace VLSUP.Views
                 case FilterEmployeeType.Seniors: employees = employees.Where(e => e.EmployeeType.Title.ToLower().Contains("senior")).ToArray(); break;
             }
             mainList.ItemsSource = employees;
+            App.RenderInfo("EmployeesPage");
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -99,7 +100,6 @@ namespace VLSUP.Views
            
             mainList.ItemsSource = null;
             mainList.ItemsSource = employees;
-            // +TODO mainList.ScrollIntoView(obj);
         }
     }
 

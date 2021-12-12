@@ -60,6 +60,7 @@
     <Property Name="TesterId" Type="uniqueidentifier" />
     <Property Name="State" Type="uniqueidentifier" Nullable="false" />
     <Property Name="IsRemoved" Type="bit" Nullable="false" />
+    <Property Name="NumberTask" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TaskStates">
     <Key>
