@@ -40,6 +40,9 @@ namespace VLSUP.Views.Windows
             this.DataContext = Task;
         }
 
+        private void closeButton_Click(object sender, RoutedEventArgs e) => this.Close();
+        private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) => this.DragMove();
+
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             if (String.IsNullOrWhiteSpace(Task.Title))

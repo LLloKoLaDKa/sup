@@ -23,6 +23,9 @@ namespace VLSUP.Views.Windows
             employeeBox.ItemsSource = employees;
         }
 
+        private void closeButton_Click(object sender, RoutedEventArgs e) => this.Close();
+        private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) => this.DragMove();
+
         private void removeButton_Click(object sender, RoutedEventArgs e)
         {
             Employee selectedEmployee = employeeBox.SelectedItem as Employee;

@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using System.Linq;
 using VLSUP.Repository;
-using Word = Microsoft.Office.Interop.Word;
 using Excel = Microsoft.Office.Interop.Excel;
 using ThTask = System.Threading.Tasks.Task;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace VLSUP.Tools
 {
@@ -132,29 +132,33 @@ namespace VLSUP.Tools
             {
                 Excel.Application xlApp = new Excel.Application();
                 xlApp.Visible = false;
-                xlApp.SheetsInNewWorkbook = 1;
                 xlApp.DisplayAlerts = false;
                 Excel.Workbook xlWorkbook = xlApp.Workbooks.Add();
                 Excel.Worksheet sheet = xlWorkbook.Worksheets[1];
                 sheet.Name = "Отчет отпусков";
                 Excel.Range range = sheet.Range["A1", "D1"].Cells;
-                range.Merge();
                 sheet.Cells[1, 1] = "Отпуска сотрудников";
+                Excel.Range titleRange = sheet.Cells[1, 1];
+                titleRange.HorizontalAlignment = Excel.Constants.xlCenter;
+                range.Merge();
 
-                Vacation[] vacations = App.db.Vacations.ToArray();
+                Vacation[] vacations = App.db.Vacations.OrderBy(v => v.DateStart).ToArray();
                 for (int i = 2; i <= vacations.Length; i++)
                 {
                     Vacation vacation = vacations[i - 2];
-                    sheet.Cells[i, 1].Range.Text = vacation.EmployeeName;
-                    sheet.Cells[i, 2].Range.Text = vacation.DateStart;
-                    sheet.Cells[i, 3].Range.Text = vacation.DateEnd;
-                    sheet.Cells[i, 4].Range.Text = String.IsNullOrWhiteSpace(vacation.Comment) ? "Комментарий отсутсвует" : vacation.Comment;
+                    sheet.Cells[i, 1] = vacation.EmployeeName;
+                    sheet.Cells[i, 2] = vacation.DateStartOnlyDate;
+                    sheet.Cells[i, 3] = vacation.DateEndOnlyDate;
+                    sheet.Cells[i, 4] = String.IsNullOrWhiteSpace(vacation.Comment) ? "Комментарий отсутсвует" : vacation.Comment;
                 }
-
+                Excel.Range sheetRange = sheet.Columns;
+                sheetRange.AutoFit();
                 sheet.SaveAs(filePath);
                 xlApp.Quit();
                 sheet = null;
                 xlApp = null;
+
+                Process.Start(filePath);
             });
         }
     }

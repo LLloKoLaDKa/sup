@@ -56,7 +56,5 @@ namespace VLSUP.Views
             ReturnAction = null;
             returnButton.Visibility = Visibility.Hidden;
         }
-
-        
     }
 }

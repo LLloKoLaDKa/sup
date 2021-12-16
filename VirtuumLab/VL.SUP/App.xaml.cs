@@ -76,7 +76,7 @@ namespace VLSUP
             _window.mainFrame.Content = TasksPage;
             _window.SetReturnAction(ChangeToProjectsPage);
             _window.frameTitle.Text = $"{project.Name}";
-            RenderInfo("TasksPage");
+            RenderInfo("TasksPage", project.Id);
         }
 
         public static void ChangeToReportsPage()
